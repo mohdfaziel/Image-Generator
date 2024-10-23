@@ -27,7 +27,7 @@ async function imageGenerate() {
                             <a href = ${x.links.download} target="_blank"><img src=${x.urls.regular} alt=""><a>
                         </div>
                         <p class="desc">
-                        ${x.alt_description.slice(0, 35)} ... see more
+                        ${x.alt_description.slice(0, 20)} ... see more
                         </p>
                     `
         imgContainer.append(card);
