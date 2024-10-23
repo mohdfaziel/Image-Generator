@@ -84,10 +84,10 @@ input {
     padding-left: 20px;
     padding-right: 20px;
     width: 400px;
-    height: 520px;
+    min-height: 100px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    gap:10px;
     align-items: center;
     background-color: var(--primary);
     border-radius: 30px;
@@ -107,7 +107,7 @@ input {
 
 .card .desc {
     width: 100%;
-    overflow: hidden;
+    cursor: pointer;
 }
 
 .user {

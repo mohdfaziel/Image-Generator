@@ -8,12 +8,12 @@ async function imageGenerate() {
     let info = await data.json();
     let details = info.results;
     imgContainer.innerHTML = "";
-    if(details.length==0)
-    {
-        imgContainer.innerHTML="Invalid Keyword";
+    if (details.length == 0) {
+        imgContainer.innerHTML = "Invalid Keyword";
+        return;
     }
-    details.map((x)=>
-    {
+    let count = 0;
+    details.map((x) => {
         let card = document.createElement('div');
         card.setAttribute('class', 'card');
         card.innerHTML = `
@@ -27,10 +27,14 @@ async function imageGenerate() {
                             <img src=${x.urls.regular} alt="">
                         </div>
                         <p class="desc">
-                        ${x.alt_description}
+                        ${x.alt_description.slice(0, 30)} ... see more
                         </p>
                     `
         imgContainer.append(card);
+        let desc = document.getElementsByClassName("desc")[count++];
+        desc.addEventListener('click', () => {
+            desc.innerHTML = x.alt_description
+        })
     })
 }
 searchBtn.addEventListener("click", imageGenerate);
