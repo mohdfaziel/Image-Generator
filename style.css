@@ -54,14 +54,15 @@
 input {
     padding: 5px;
     border-radius: 30px;
-    border: 2px solid var(--ternary);
+    border: none;
 }
 #btn{
+    background-color: white;
     cursor: pointer;
     width: 5rem;
 }
 #btn:hover{
-    background-color:var(--secondary) ;
+    background-color:var(--primary) ;
 }
 #imagename{
     padding-left: 10px;
