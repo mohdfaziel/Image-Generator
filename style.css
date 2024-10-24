@@ -1,10 +1,7 @@
-
-:root {
+  :root { 
     --primary: #f8f7ff;
-    --secondary: #b8b8ff;
-    --ternary: #9381ff;
-  }
-
+    --secondary: #c6a6f2; 
+    --ternary: #af82ed; }
 * {
     margin: 0;
     padding: 0;
