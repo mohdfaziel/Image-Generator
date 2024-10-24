@@ -1,15 +1,23 @@
 let searchBtn = document.getElementById("btn");
 let imgContainer = document.getElementsByClassName("lower")[0];
 let input = document.getElementById("imagename");
+let refresh = document.getElementById("refresh");
+let pageno = 1;
+let keyword = ""
 async function imageGenerate() {
     imgContainer.innerHTML = "<div class='loader'></div>";
-    let keyword = input.value;
-    let data = await fetch(`https://api.unsplash.com/search/photos?query=${keyword}&client_id=0lzMzzZzFAZVjjJiOZnXsq7WSiv1SYExx-dQTCKa8jo`);
+    if (keyword.trim().length == 0) {
+        imgContainer.innerHTML = "Invalid Keyword";
+        refresh.style.display = "none";
+        return;
+    }
+    let data = await fetch(`https://api.unsplash.com/search/photos?query=${keyword.trim()}&client_id=0lzMzzZzFAZVjjJiOZnXsq7WSiv1SYExx-dQTCKa8jo&page=${pageno}`);
     let info = await data.json();
     let details = info.results;
     imgContainer.innerHTML = "";
     if (details.length == 0) {
         imgContainer.innerHTML = "Invalid Keyword";
+        refresh.style.display = "none";
         return;
     }
     let count = 0;
@@ -27,7 +35,7 @@ async function imageGenerate() {
                             <a href = ${x.links.download} target="_blank"><img src=${x.urls.regular} alt=""><a>
                         </div>
                         <p class="desc">
-                        ${x.alt_description.slice(0, 20)} ... see more
+                        ${x.alt_description.slice(0, 20)} <span>... see more</span>
                         </p>
                     `
         imgContainer.append(card);
@@ -35,6 +43,18 @@ async function imageGenerate() {
         desc.addEventListener('click', () => {
             desc.innerHTML = x.alt_description
         })
+        refresh.style.display = "block";
     })
 }
-searchBtn.addEventListener("click", imageGenerate);
+searchBtn.addEventListener("click", ()=>
+{
+    keyword = input.value;
+    input.value = "";
+    pageno = 1;
+    imageGenerate();
+});
+refresh.addEventListener("click", ()=>
+{
+    pageno++;
+    imageGenerate();
+});
