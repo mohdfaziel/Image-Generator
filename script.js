@@ -57,4 +57,5 @@ refresh.addEventListener("click", ()=>
 {
     pageno++;
     imageGenerate();
+    window.scrollTo(0, 0);
 });
