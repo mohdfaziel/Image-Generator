@@ -1,8 +1,10 @@
+
 :root {
-    --primary: #fefae0;
-    --secondary: #faedcd;
-    --ternary: #d4a373;
+    --primary: #f8f7ff;
+    --secondary: #b8b8ff;
+    --ternary: #9381ff;
   }
+
 * {
     margin: 0;
     padding: 0;
@@ -43,6 +45,7 @@
 }
 .upper h1{
     text-align: center;
+    color: var(--primary);
 }
 .search {
     display: flex;
