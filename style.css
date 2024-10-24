@@ -14,7 +14,7 @@
 }
 
 .body {
-    background-color: var(--primary);
+    background-color: var(--secondary);
     width: 100vw;
     min-height: 100vh;
     display: flex;
