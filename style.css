@@ -12,7 +12,9 @@
     font-family: "Poppins";
     transition: all 0.1s ease;
 }
-
+body{
+    overflow-x: hidden;
+}
 .body {
     background-color: var(--secondary);
     width: 100vw;
