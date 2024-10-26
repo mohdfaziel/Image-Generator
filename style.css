@@ -1,7 +1,12 @@
-  :root { 
+  /* :root { 
     --primary: #f8f7ff;
     --secondary: #c6a6f2; 
-    --ternary: #af82ed; }
+    --ternary: #af82ed; } */
+    :root {
+        --primary: #fcfcfc;
+        --secondary: #c6a6f2;
+        --ternary: #af82ed;
+    }
 * {
     margin: 0;
     padding: 0;
